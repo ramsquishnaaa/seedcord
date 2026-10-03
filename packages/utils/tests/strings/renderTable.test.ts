@@ -358,6 +358,11 @@ describe('renderTable maxWidth wrap', () => {
         expect(rows[0]).toBe('│ aa │');
         expect(rows[1]).toBe('│ bb │');
     });
+
+    it('prints a run of spaces as one space when the cell fits', () => {
+        const rows = bodyLines(renderTable([['a  b']], { maxWidth: 10 }));
+        expect(rows[0]).toBe('│ a b │');
+    });
 });
 
 describe('renderTable pagination', () => {
